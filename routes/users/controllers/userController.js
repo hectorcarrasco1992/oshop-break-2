@@ -31,7 +31,7 @@ module.exports = {
                   .json({ confirmation: false, message: err });
               } else {
                 // return res.redirect('/');
-                next();
+                return next();
               }
             });
           })

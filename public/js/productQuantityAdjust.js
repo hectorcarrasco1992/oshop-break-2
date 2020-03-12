@@ -1,26 +1,36 @@
-if (document.getElementById('plus')) {
-  document.getElementById('plus').addEventListener('click', event => {
+const plus = document.getElementById('plus')
+const minus = document.getElementById('minus')
+const priceValue1 =document.getElementById('priceValue')
+let quantity1 = document.getElementById('quantity')
+let priceHidden1 = document.getElementById('priceHidden')
+let total = document.getElementById('total')
+if (plus) {
+  plus.addEventListener('click', event => {
     event.preventDefault();
 
-    let priceValue = parseFloat(document.getElementById('priceValue').value);
-    let quantity = parseFloat(document.getElementById('quantity').value);
-    let priceHidden = parseFloat(document.getElementById('priceHidden').value);
-
+    let priceValue = parseFloat(priceValue1.value);
+    let quantity = parseInt(quantity1.value);
+    let priceHidden = parseFloat(priceHidden1.value);
+    console.log(priceHidden);
     priceValue += priceHidden;
+    console.log('PriceValue: ', priceValue);
     quantity += 1;
-    document.getElementById('quantity').value = quantity;
-    document.getElementById('priceValue').value = priceValue.toFixed(2);
-    document.getElementById('total').innerHTML = quantity;
+    console.log('Plus:', quantity);
+    quantity1.value = quantity;
+    priceValue1.value = priceValue.toFixed(2);
+    total.innerHTML = quantity;
   });
 }
 
-if (document.getElementById('minus')) {
-  document.getElementById('minus').addEventListener('click', event => {
+if (minus) {
+  minus.addEventListener('click', event => {
     event.preventDefault();
 
-    let priceValue = parseFloat(document.getElementById('priceValue').value);
-    let quantity = parseFloat(document.getElementById('quantity').value);
-    let priceHidden = parseFloat(document.getElementById('priceHidden').value);
+   
+
+    let priceValue = parseFloat(priceValue1.value);
+    let quantity = parseInt(quantity1.value);
+    let priceHidden = parseFloat(priceHidden1.value);
 
     if (quantity === 1) {
       quantity = 1;
@@ -29,9 +39,10 @@ if (document.getElementById('minus')) {
     } else {
       priceValue -= priceHidden;
       quantity -= 1;
-      document.getElementById('quantity').value = quantity;
-      document.getElementById('priceValue').value = priceValue.toFixed(2);
-      document.getElementById('total').innerHTML = quantity;
+
+      quantity1.value = quantity;
+      priceValue1.value = priceValue.toFixed(2);
+      total.innerHTML = quantity;
     }
   });
 }

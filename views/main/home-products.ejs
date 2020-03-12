@@ -58,7 +58,7 @@
           </div>
           <div style="display:block">
             <ul class="pagination text-center">
-              <% for( let j = 1; j <= pages; j++ ) { if(j===1){ %>
+              <% for( let j = 1; j < pages; j++ ) { if(j===1){ %>
               <li class="my-pagination"><a href="/"><%= j %> </a></li>
               <% }else{ %>
               <li class="my-pagination">

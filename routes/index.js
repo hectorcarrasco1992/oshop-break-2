@@ -10,9 +10,9 @@ function paginate(req, res, next) {
     .limit(perPage)
     .populate('category')
     .exec((err, products) => {
-      if (err) return next(err);
+      if (err)  next(err);
       Product.countDocuments().exec((err, count) => {
-        if (err) return next(err);
+        if (err)  next(err);
         return res.render('main/home-products', {
           products,
           pages: Math.ceil(count / perPage),
